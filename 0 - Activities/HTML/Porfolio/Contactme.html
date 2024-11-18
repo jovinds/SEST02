@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact me</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="Home.html">Home</a></li>
+          <li><a href="Experience.html">Experience</a></li>
+          <li><a href="Food.html">Food</a></li>
+          <li><a href="Movie.html">Movie</a></li>
+          <li><a href="Contactme.html">Contact me</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section>
+        <h1>Book a Meeting Schedule</h1>
+        <div>
+          <form action="" method="post" enctype="multipart/form-data">
+            <div>
+              <label for="fullname-id">Name:</label>
+              <input
+                type="text"
+                name="user-fullname"
+                id="fullname-id"
+                placeholder="Full name"
+                required
+                pattern="[\w\s\.]{5,40}"
+                title="Char between 5 to 40"
+              />
+            </div>
+            <div>
+              <label for="email-id">Email:</label>
+              <input
+                type="email"
+                name="user-email"
+                id="email-id"
+                placeholder="johndoe@gmail.com"
+                required
+              />
+            </div>
+            <div>
+              <label for="number-id">Mobile No:</label>
+              <input
+                type="tel"
+                name="user-number"
+                id="number-id"
+                pattern="09[0-9]{2}-[0-9]{3}-[0-9]{4}"
+                placeholder="09xx-xxx-xxxx"
+                required
+              />
+            </div>
+        
+            <div>
+              <label for="datetime-local-id">Meeting Schedule</label>
+              <input
+                type="datetime-local"
+                name="meeting-datetime-local"
+                id="datetime-local-id"
+              />
+            </div>
+            <div>
+              <label for="message-id">Message:</label><br />
+              <textarea
+                name="user-message"
+                id="message-id"
+                placeholder="What's on your mind?"
+                cols="30"
+                rows="10"
+              ></textarea>
+            </div>
+              <input
+                type="radio"
+                name="request-status"
+                id="onsite-id"
+                value="onsite"
+              />
+              <label for="onsite-id">Onsite</label>
+              <input
+                type="radio"
+                name="request-status"
+                id="virtual-id"
+                value="virtual"
+              />
+              <label for="virtual-id">Virtual</label>
+            </div>
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+          </form>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
