@@ -25,3 +25,5 @@ git commit -m "Description."
 
 - Check the history
 git log
+
+This is an example problematic functionality.
