@@ -25,3 +25,10 @@ git commit -m "Description."
 
 - Check the history
 git log
+
+- REVERTING
+git revert [commit-hash]
+git revert --no-edit [commit-hash]
+
+- RESETTING
+git reset [commit-hash]
