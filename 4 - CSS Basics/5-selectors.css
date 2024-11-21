@@ -1,0 +1,30 @@
+/* Element Selector */
+span {
+  background-color: #fc9bac;
+}
+
+/* Universal Selector */
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#title {
+  text-align: center;
+}
+
+/* Class Selector */
+.paragraph {
+  background-color: #ee6c4d;
+}
+/* .second {
+    color: #ffd5c2;
+  } */
+p.paragraph.second {
+  color: #ffd5c2;
+}
+
+/* Grouping Selector */
+ul,
+ol {
+  background-color: aqua;
+}
