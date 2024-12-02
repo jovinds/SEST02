@@ -1,0 +1,205 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+/* Universal Selector */
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+section,
+footer {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.title {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+section p.red-text {
+  font-weight: 600;
+  font-size: 1.2rem;
+  letter-spacing: 4px;
+  color: rgba(255, 0, 0, 0.6);
+}
+
+section p.description {
+  font-size: 1.4rem;
+  color: rgb(30, 29, 29);
+}
+
+img.main-logo {
+  width: 120px;
+}
+
+.navigation-links ul {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  flex-wrap: wrap;
+}
+
+.navigation-links div.links,
+div.icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 15px;
+}
+
+.navigation-links li {
+  padding: 0 10px;
+}
+
+.navigation-links li a {
+  text-decoration: none;
+  color: black;
+}
+
+.navigation-links li a:hover {
+  color: #3bd950;
+}
+
+button.main,
+button.contact {
+  width: 150px;
+  color: white;
+  background-color: #3bd950;
+  padding: 10px;
+  font-size: 1.3rem;
+  font-weight: 500;
+  border-radius: 25px;
+  border: none;
+  transition-duration: 500ms;
+  transition-property: box-shadow;
+}
+
+button.main:hover {
+  box-shadow: 0px 10px 25px #3bd9508e;
+}
+button.contact:hover {
+  box-shadow: 0px 10px 25px #3bd9508e;
+}
+
+button.contact i {
+  margin-right: 10px;
+}
+
+button.play {
+  width: 60px;
+  height: 60px;
+  font-size: 1.2rem;
+  background-color: white;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0px 10px 25px #9da09d8e;
+}
+section.hero-section {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  align-content: space-evenly;
+  gap: 50px;
+}
+section.hero-section div {
+  width: 550px;
+}
+
+section.hero-section img {
+  width: 110%;
+  display: block;
+  margin: 0 auto;
+}
+
+section.hero-section div.text > p {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-right: 10px;
+}
+
+/* SPECIAL DISHES */
+.special-dishes div.menu-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 20px;
+}
+.special-dishes div.menu-cards div.card {
+  height: 500px;
+  width: 380px;
+  border: 2px solid rgba(0, 0, 0, 0.045);
+  border-radius: 8%;
+  box-shadow: 0px 10px 25px #9da09d8e;
+  padding: 30px;
+  box-sizing: border-box;
+}
+.special-dishes div.menu-cards div.image > img {
+  display: block;
+  margin: 0 auto;
+}
+.special-dishes div.menu-cards div.image {
+  height: 60%;
+  margin-bottom: 10px;
+}
+.special-dishes div.menu-cards div.card div.content p.title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin: 20px 0px;
+}
+
+.special-dishes div.menu-cards div.card div.content p.description {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: rgb(95, 94, 94);
+}
+
+.special-dishes div.menu-cards div.card div.content span.price {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.special-dishes
+  div.menu-cards
+  div.card
+  div.content
+  span.price
+  i.fa-dollar-sign {
+  color: orangered;
+}
+
+.special-dishes div.menu-cards div.card div.content span.rating {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: rgb(89, 86, 86);
+  float: right;
+}
+.special-dishes div.menu-cards div.card div.content span.rating i.fa-star {
+  margin-right: 10px;
+  color: rgb(235, 235, 0);
+}
+
+/* TESTIMONIALS */
+section.testimonial-section {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap-reverse;
+  gap: 50px;
+}
+section.testimonial-section div {
+  width: 550px;
+}
+section.testimonial-section img {
+  display: block;
+  margin: 0 auto;
+}
