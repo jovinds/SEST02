@@ -36,8 +36,8 @@
 
   /* Wrap our content */
   flex-wrap: wrap-reverse;
-  flex-wrap: wrap;
   flex-wrap: nowrap;
+  flex-wrap: wrap;
 
   /* This will only work when items are wrapping */
   /* Turn the flex-wrap: wrap */
