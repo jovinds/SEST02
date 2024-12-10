@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Functions</title>
+  </head>
+  <body>
+    <h1>JS Functions</h1>
+    <script>
+      //  2. Function Definition with parameters
+      // parameters: placeholder
+      // arguments: values passed to a function's parameters.
+      function greetIndividual(name) {
+        console.log(`Hello ${name}. Welcome to world of functions!`);
+      }
+      greetIndividual("John Vincent");
+
+      // Functions with different arguments
+      function addTwoNumbers(num1, num2) {
+        return num1 + num2;
+      }
+      console.log("Sum of 10 and 20:", addTwoNumbers(10, 20));
+      console.log("Sum of 30 and 40:", addTwoNumbers(30, 40));
+      let answer = addTwoNumbers(100, 200);
+      console.log("Answer:", answer);
+
+      // Functions with Default Parameters
+      function power(base, exponent = 2) {
+        return base ** exponent;
+      }
+      console.log("3 Raise to power of 3:", power(3, 3));
+      console.log("4 Raise to the power of 3:", power(4, 3));
+      console.log("Only one argument:", power(4));
+
+      // Function that can accept multiple arguments.
+      function sumTotal() {
+        // return num1 + num2;
+        console.log(arguments);
+        let total = 0;
+        // Initialization Expression
+        // Condition Expression
+        // Increment/Decrement Expression
+        for (let i = 0; i < arguments.length; i++) {
+          total += arguments[i];
+        }
+        console.log("Total:", total);
+      }
+      sumTotal(10, 20, 30, 40, 50);
+
+      // Rest Parameter: pass multiple arguments and stored inside of an array
+      function restSumTotal(...numbers) {
+        console.log("Numbers:", numbers);
+        let total = 0;
+        let i = 0;
+        while (i < numbers.length) {
+          total += numbers[i];
+          i++;
+        }
+        console.log("Total:", total);
+      }
+      restSumTotal(30, 20, 10);
+
+      // 1. Function Definition
+      greet(); // Hoisting: moving function declarations to the top of the file automatically.
+      function greet() {
+        console.log("Hello, welcome to the world of functions");
+        console.log("Let's gooo!!!");
+      }
+      greet();
+      greet();
+      greet();
+
+      // 2. Function Expression
+      // Named Function Expression
+      // Anonymous Function Expression - No Function Name
+      const differenceTwoNumbers = function (num1, num2) {
+        return num1 - num2;
+      };
+      console.log("Difference:", differenceTwoNumbers(10, 5));
+
+      
+      // 3. Arrow Function: function expression in a concise manner
+      // Note: If the function expression contains only one statement, remove the {}
+      // Note: If the function expression contains one parameter, remove the ()
+      const introduce = (name) => console.log(`I am ${name}.`);
+      introduce("John");
+      introduce("Randy");
+      introduce("Eli");
+    </script>
+  </body>
+</html>

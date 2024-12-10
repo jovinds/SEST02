@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Activity 3</title>
+    <script>
+      const secretNumber = 3;
+      let attempts = 0;
+      var guessedNumber = 0;
+
+      console.log("Welcome!!!");
+
+      do {
+        guessedNumber = prompt("Enter Your Guess");
+
+        if (guessedNumber < secretNumber) {
+          console.log("Too low! Try Again.");
+        } else if (guessedNumber > secretNumber) {
+          console.log("Too high! Try Again");
+        } else {
+          console.log(
+            `Congratulations! You guessed the correct number: ${secretNumber}`
+          );
+          console.log(`It took you ${attempts} attempts`);
+        }
+        attempts++;
+      } while (guessedNumber != secretNumber);
+    </script></head
+  >6
+  <body>
+    <h1>ACTIVITY 3: Guess the Secret Number</h1>
+    <ol>
+      <li>Open your JavaScript development environment or console.</li>
+      <li>
+        Declare a variable named secretNumber and assign it a random integer
+        between 1 and 10.
+      </li>
+      <li>
+        Declare a variable named attempts and set it to 0. This variable will
+        keep track of the number of attempts made by the player.
+      </li>
+      <li>
+        Declare a variable named guessedNumber to store the player's guesses.
+      </li>
+      <li>Display a welcome message to the player using console.log().</li>
+      <li>
+        Start a do-while loop to repeatedly ask the player for their guess until
+        they guess the correct number.
+      </li>
+      <li>
+        Inside the loop, prompt the player to enter their guess using prompt()
+        function and store it in the guessedNumber variable.
+      </li>
+      <li>
+        Use an if statement to check if the guessedNumber is lower than the
+        secretNumber.
+        <ol>
+          <li>
+            If it is lower, display the message "Too low! Try again." using
+            console.log().
+          </li>
+        </ol>
+      </li>
+      <li>
+        Use an else if statement to check if the guessedNumber is higher than
+        the secretNumber.
+        <ol>
+          <li>
+            If it is higher, display the message "Too high! Try again." using
+            console.log().
+          </li>
+        </ol>
+      </li>
+      <li>
+        Use an else statement to handle the case when the guessedNumber matches
+        the secretNumber.
+        <ol>
+          <li>
+            Display the message "Congratulations! You guessed the correct
+            number: [secretNumber]" using console.log().
+          </li>
+          <li>
+            Display the message "It took you [attempts] attempts." to let the
+            player know how many attempts they took.
+          </li>
+        </ol>
+      </li>
+      <li>Increment the attempts variable by 1.</li>
+      <li>
+        Repeat steps 7-11 until the guessedNumber matches the secretNumber.
+      </li>
+      <li>End the game.</li>
+    </ol>
+    <script></script>
+  </body>
+</html>

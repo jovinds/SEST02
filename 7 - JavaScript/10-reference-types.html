@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Reference Data Types</title>
+  </head>
+  <body>
+    <h1>JS Reference Data Types</h1>
+    <script>
+      // Array: Collection of values/elements
+      let numbers = [1, 2, 3, 4, 5];
+      console.log("Numbers:", numbers);
+      console.log("Type of numbers:", typeof numbers);
+      console.log("First Element:", numbers[0]);
+      console.log("Index of Five:", numbers[5]); // undefined
+
+      // Objects:
+      const person = {
+        firstName: ["John", "vince"],
+        lastName: "Doe",
+        age: 30,
+      };
+      console.log("Person:", person);
+      console.log("Data Type of Person:", typeof person);
+      console.log("Person:", person.firstName[1]);
+
+      // Functions: block of code that performs a specific task
+      function greet() {
+        console.log("Hello, welcome to the world of functions");
+        console.log("Let's gooo!!!");
+      }
+
+      // Functions: block of code that performs a specific task
+      function greet() {
+        console.log("Hello, welcome to the world of functions");
+        console.log("Let's gooo!!!");
+      }
+      greet();
+      greet();
+      greet();
+      
+      console.log("Data Type of Function:", typeof greet);
+    </script>
+  </body>
+</html>
