@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Person Class Challenge</title>
+    <script>
+      class Person {
+        constructor(name, age, occupation) {
+          this.name = name;
+          this.age = age;
+          this.occupation = occupation;
+          this.hobbies = [];
+          this.address = {
+            street: null,
+            city: null,
+            state: null,
+            zipCode: null,
+          };
+        }
+        introduce() {
+          if (this.hobbies.length > 1) {
+            const lasthobby = this.hobbies.pop();
+            console.log(
+              `Hello! My name is ${this.name}, ${
+                this.age
+              } years old and I'm currently working as a/an ${
+                this.occupation
+              } and my hobbies are ${this.hobbies.join(", ")} and ${lasthobby}`
+            );
+            this.hobbies.push(lasthobby);
+          } else {
+            console.log(
+              `Hello! My name is ${this.name}, ${this.age} years old and I'm currently working as a/an ${this.occupation} and my hobby is ${this.hobbies}`
+            );
+          }
+        }
+        getOlder() {
+          this.age++;
+        }
+        changeOccupation(newOccupation) {
+          this.occupation = newOccupation;
+        }
+        addHobby(...newHobby) {
+          this.hobbies.push(...newHobby);
+        }
+        move(street, city, state, zipCode) {
+          this.address.street = street;
+          this.address.city = city;
+          this.address.state = state;
+          this.address.zipCode = zipCode;
+        }
+        greet(friend) {
+          console.log(`Hello ${friend.name} im ${this.name}`);
+        }
+      }
+
+      const john = new Person("John", 23, "Engineer");
+      const peter = new Person("Peter", 24, "Nurse");
+      const james = new Person("James", 21, "Dentist");
+
+      peter.getOlder();
+      peter.changeOccupation("Cook");
+      peter.addHobby("Biking");
+      peter.addHobby("Swimming", "Voleyball");
+      peter.move("sample Street", "sample City", "sample state", "2355");
+      peter.move("753 main st.", "somewhere Town", "CA", "6321");
+      peter.introduce();
+      console.log(peter);
+
+      james.getOlder();
+      james.changeOccupation("Lawyer");
+      james.addHobby("Dancing");
+      james.addHobby("Singing");
+      james.move("sample Street", "sample City", "sample state", "2355");
+      james.move("753 main st.", "somewhere Town", "CA", "6321");
+      james.introduce();
+      console.log(james);
+
+      john.getOlder();
+      john.changeOccupation("Pilot");
+      john.addHobby("Biking", "Gaming");
+      john.addHobby("Swimming");
+      john.move("sample Street", "sample City", "sample state", "2355");
+      john.move("123 main st.", "somewhere Town", "FL", "2455");
+      john.introduce();
+      console.log(john);
+      john.greet(james);
+    </script>
+  </head>
+  <body></body>
+</html>
