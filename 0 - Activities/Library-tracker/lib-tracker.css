@@ -1,0 +1,90 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav.navbar {
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 10px;
+  background-color: burlywood;
+  font-size: 40px;
+}
+
+.add-books {
+  padding: 20px;
+  background-color: cadetblue;
+}
+
+.add-books > h1 {
+  display: flex;
+  padding: 10px;
+  font-size: 30px;
+  justify-content: center;
+}
+
+.inputs {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.input-container {
+  width: 300px;
+}
+
+.inputs > div {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Library ----------------- */
+
+.library {
+  display: flex;
+}
+
+.book-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 80vh;
+  overflow: auto;
+  background-color: darkkhaki;
+}
+
+.borrow-list {
+  width: 50vw;
+  height: 100%;
+  background-color: rgb(215, 206, 82);
+}
+
+.book-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  width: 600px;
+  background-color: white;
+}
+
+.book-name {
+  overflow: hidden;
+  padding: 10px;
+  padding-left: 30px;
+  font-size: 30px;
+}
+
+.borrow-button {
+    background-color: green;
+    color: white;
+    padding: 20px;
+}
+
+.returned {
+  background-color: rgb(255, 145, 0);
+}

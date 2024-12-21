@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Linear Search</title>
+  </head>
+  <body>
+    <h1>JS Linear Search</h1>
+    <script>
+      function linearSearch(arrayToSearch, arraySize, targetValue) {
+        for (let index = 0; index < arraySize; index++) {
+          if (arrayToSearch[index] === targetValue) {
+            return index;
+          }
+        }
+        return -1;
+      }
+      // index = 5
+      // arraySize = 5
+
+      const numbers = [10, 50, 30, 70, 20];
+      const numberOfElements = numbers.length;
+      const target = 50;
+
+      const result = linearSearch(numbers, numberOfElements, target);
+      console.log("Index:", result);
+    </script>
+  </body>
+</html>

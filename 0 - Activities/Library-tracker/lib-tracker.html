@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library Tacker</title>
+    <link rel="stylesheet" href="lib-tracker.css" />
+    <script
+      src="https://kit.fontawesome.com/ca430043f7.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <nav class="navbar">
+      <h1>Library Tracker</h1>
+    </nav>
+    <main>
+      <section class="add-books">
+        <h1>Add books in the Library</h1>
+        <div class="inputs">
+          <div>
+            <h3>Title:</h3>
+            <input type="text" class="input-title input-container" />
+          </div>
+          <div>
+            <h3>Genre:</h3>
+            <select name="" id="genre-selection">
+              <option value="default">--- Select Genre ---</option>
+              <option value="Fantasy">Fantasy</option>
+              <option value="Action">Action</option>
+              <option value="Comedy">Comedy</option>
+            </select>
+            <button class="save-button">Save</button>
+          </div>
+        </div>
+      </section>
+      <section class="library">
+        <div class="book-list">
+          <h1>Available books</h1>
+          <select name="" id="genre-filter">
+            <option value="all">--- All ---</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="Action">Action</option>
+            <option value="Comedy">Comedy</option>
+          </select>
+          <ul class="books"></ul>
+        </div>
+      </section>
+    </main>
+  </body>
+  <script src="lib-tracker.js"></script>
+</html>
