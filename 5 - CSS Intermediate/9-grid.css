@@ -22,7 +22,7 @@ body {
   grid-template-columns: 200px 200px 200px 200px;
   grid-template-rows: 200px 200px 200px 200px;
 
-  /* Using auto */
+  /* Using auto */  
   /* Adjust the width and height based on the content */
   grid-template-columns: auto auto auto auto;
   /* grid-template-rows: auto auto auto auto; */

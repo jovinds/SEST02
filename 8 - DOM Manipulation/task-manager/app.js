@@ -18,7 +18,7 @@ function addTodo(event) {
   if (cleanTodoInput !== "") {
     saveLocalTodos(cleanTodoInput);
     // Create the new todoDiv
-    const todoDiv = document.createElement("div");
+    const todoDiv = document.createElement("div");  
     todoDiv.classList.add("todo");
 
     // Create the list item for the task
