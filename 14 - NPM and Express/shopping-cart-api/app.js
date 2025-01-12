@@ -106,6 +106,45 @@ app.delete("/products/:productId", (request, response) => {
   }
 });
 
+// Check Cart ITems
+
+app.get("/cartItems", (request, response) => {
+  response.status(200).json(cartItems);
+});
+
+// Add Items to cart
+
+app.post("/cartItems/addToCart", (request, response) => {
+  const { productId, quantity } = request.body;
+
+  const product = products.find((product) => product.id === productId);
+  if (product) {
+    for (let i = 1; i <= quantity; i++) {
+      cartItems.push(product);
+    }
+    response.status(200).json({ message: "Product added to cart" });
+  } else {
+    response.status(404).json({ message: "Product not found" });
+  }
+});
+
+// Delete an Item From Cart
+
+app.delete("/cartItems/deleteProductId/:productId", (request, response) => {
+  const productId = parseInt(request.params.productId);
+
+  const productIndex = cartItems.findIndex(
+    (product) => product.id === productId
+  );
+
+  if (productIndex !== -1) {
+    cartItems.splice(productIndex, 1);
+    response.status(200).json({ message: "Item removed from cart" });
+  } else {
+    response.status(404).json({ message: "Item not found in cart" });
+  }
+});
+
 app.listen(port, () => {
   console.log(`Server listening on port: ${port}...`);
 });
