@@ -3,7 +3,7 @@
 // 2. Function based components
 // PascalCasing naming convention
 // Each first letter of each word should be capital.
-function App() {
+function Component() {
   // Code goes here
   // JSX: Javascript XML
   const greeting = "Welcome to React.js heello";
@@ -14,4 +14,4 @@ function App() {
     </>
   );
 }
-export default App;
+export default Component;

@@ -1,11 +1,9 @@
-import Book from "./components/2-Props-Proptypes-DefaultProps";
-import UsersList from "./components/3-ConditionalRendering";
-import Increment from "./components/4-UseState";
+import Products from "./components/7-FetchApi";
 
 function App() {
   return (
     <>
-      <Increment></Increment>
+      <Products></Products>
     </>
   );
 }

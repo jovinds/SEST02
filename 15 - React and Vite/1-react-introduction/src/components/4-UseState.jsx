@@ -25,6 +25,20 @@ function Increment() {
     setCount((count) => count - 1);
   };
 
+  /*
+    // This approach will not trigger a re-render.
+    let count = 0;
+    const increment = () => {
+        // count = count + 1;
+        count += 1;
+        console.log(count)
+    }
+    const decrement = () => {
+        count -= 1;
+        console.log(count)
+    }
+    */
+
   return (
     <div>
       <p>Count: {count}</p>

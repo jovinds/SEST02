@@ -1,3 +1,4 @@
+
 const products = [
   { id: 1, name: "Laptop", price: 1000 },
   { id: 2, name: "Mobile Phone", price: 500 },
