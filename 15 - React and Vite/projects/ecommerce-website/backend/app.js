@@ -74,7 +74,11 @@ app.post("/products", (request, response) => {
     price,
   };
   products.push(newProduct);
-  response.status(201).json({ message: "Product added to the product list." });
+  response.status(201).json({
+    message: "Product added to the product list.",
+    product: newProduct,
+    successful: true,
+  });
 });
 
 app.put("/products/:productId", (request, response) => {
