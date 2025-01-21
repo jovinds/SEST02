@@ -82,10 +82,6 @@ app.post("/products", (request, response) => {
 });
 
 app.put("/products/:productId", (request, response) => {
-  response.send(request.params);
-});
-
-app.put("/products/:productId", (request, response) => {
   const productId = parseInt(request.params.productId);
   const { name, price } = request.body;
   if (!name || !price) {
@@ -97,7 +93,11 @@ app.put("/products/:productId", (request, response) => {
   if (product) {
     product.name = name;
     product.price = price;
-    response.status(200).json({ message: "Product updated successfully." });
+    response.status(200).json({
+      message: "Product updated successfully.",
+      product: product,
+      successful: true,
+    });
   } else {
     response.status(404).json({ message: "Product not found" });
   }
@@ -126,39 +126,69 @@ app.get("/cartItems", (request, response) => {
 
 // Add Items to cart
 
-app.post("/cartItems/addToCart", (request, response) => {
-  const { productId, quantity } = request.body;
+// app.post("/cartItems/addToCart", (request, response) => {
+//   const { productId, quantity } = request.body;
 
-  const product = products.find((product) => product.id === productId);
-  if (product) {
-    for (let i = 1; i <= quantity; i++) {
-      cartItems.push(product);
-    }
-    response.status(200).json({ message: "Product added to cart" });
-  } else {
-    response.status(404).json({ message: "Product not found" });
+//   const product = products.find((product) => product.id === productId);
+//   if (product) {
+//     for (let i = 1; i <= quantity; i++) {
+//       cartItems.push(product);
+//     }
+//     response.status(200).json({ message: "Product added to cart" });
+//   } else {
+//     response.status(404).json({ message: "Product not found" });
+//   }
+// });
+
+// add product to the cart items array.
+app.post("/cart", (request, response) => {
+  const { productId } = request.body;
+  const productObjectToAddToCart = products.find(
+    (productObject) => productObject.id === productId
+  );
+  if (!productObjectToAddToCart) {
+    // If there is no match
+    response.status(404).json({ message: "Product not found." });
   }
+  // Check if the product object already exists in the cartItems array.
+  const existingCartItem = cartItems.find((item) => item.id === productId);
+
+  if (existingCartItem) {
+    // If existingCartItem have a value.
+    // The product is already inside of the cartItems array.
+    existingCartItem.quantity++;
+  } else {
+    // If existingCartItem don't have a value.
+    // Add the productObject to the cartItem array.
+    cartItems.push({ ...productObjectToAddToCart, quantity: 1 });
+  }
+
+  response.status(201).json({
+    message: "Product added to cart successfully!",
+    cart: cartItems,
+  });
 });
 
 // Delete an Item From Cart
 
-app.delete("/cartItems/deleteProductId/:productId", (request, response) => {
+app.delete("/cart/:productId", (request, response) => {
   const productId = parseInt(request.params.productId);
-
-  const productIndex = cartItems.findIndex(
-    (product) => product.id === productId
-  );
-
-  if (productIndex !== -1) {
-    cartItems.splice(productIndex, 1);
-    response.status(200).json({ message: "Item removed from cart" });
+  // Returns the index of the element or -1.
+  const itemIndex = cartItems.findIndex((item) => item.id === productId);
+  if (itemIndex !== -1) {
+    // Delete the item in that index.
+    // The product is not inside of the cartItems array.
+    // .splice(start, deleteCount, element/s you want to add)
+    cartItems.splice(itemIndex, 1);
+    response.status(200).json({
+      message: "Product removed from cart successfully.",
+      cart: cartItems,
+    });
   } else {
-    response.status(404).json({ message: "Item not found in cart" });
+    response
+      .status(404)
+      .json({ message: "Product not found inside the cart." });
   }
-});
-
-app.listen(port, () => {
-  console.log(`Server listening on port: ${port}...`);
 });
 
 // Run the Express app

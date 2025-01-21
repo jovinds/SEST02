@@ -85,6 +85,65 @@ function Products() {
     setNewProductPrice(productToUpdate.price);
   };
 
+  // selectedProductId = 1
+  // productToUpdate = { id: 1, name: "Laptop", price: 1000 }
+  // newProductName = Laptop
+  // newProductPrice = 1000
+  /*
+  {
+    name: "Laptop",
+    price: 1000,
+  }
+  */
+  const updateProduct = async () => {
+    if (!selectedProductId) return;
+    console.log(products);
+    try {
+      const response = await fetch(
+        `http://localhost:3000/products/${selectedProductId}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: newProductName,
+            price: newProductPrice,
+          }),
+        }
+      );
+      if (response.ok) {
+        const responseObject = await response.json();
+        const updatedProduct = responseObject.product;
+        const updatedProducts = products.map((productObject) => {
+          if (productObject.id === selectedProductId) {
+            return updatedProduct;
+          } else {
+            return productObject;
+          }
+        });
+        setProducts(updatedProducts);
+        setSelectedProductId(null);
+        setNewProductName("");
+        setNewProductPrice(0);
+      } else {
+        throw new Error(`Network response was not ok: ${response.status}`);
+      }
+    } catch (error) {
+      console.error("Error updating product:", error);
+    }
+  };
+
+  const handleCancelUpdate = () => {
+    setSelectedProductId(null);
+    setNewProductName("");
+    setNewProductPrice(0);
+  };
+
+  if (loading) {
+    return <div>Loading products...</div>;
+  }
+
   return (
     <div>
       <h1>Products Page</h1>
@@ -136,10 +195,10 @@ function Products() {
         {/* condition ? true : false */}
         {selectedProductId ? (
           <>
-            <button type="button" onClick={null}>
+            <button type="button" onClick={updateProduct}>
               Save Changes
             </button>
-            <button type="button" onClick={null}>
+            <button type="button" onClick={handleCancelUpdate}>
               Cancel
             </button>
           </>
