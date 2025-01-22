@@ -2,13 +2,19 @@ import About from "./pages/About";
 import Products from "./pages/Products";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
+import Cart from "./pages/Cart";
 // import { Routes, Route, Link } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 
+// Bootstrap
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
 function App() {
   return (
-    <div>
+    <Container >
       {/* <nav>
         <ul>
           <li>
@@ -31,8 +37,9 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/products" element={<Products />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
-    </div>
+    </Container>
   );
 }
 
