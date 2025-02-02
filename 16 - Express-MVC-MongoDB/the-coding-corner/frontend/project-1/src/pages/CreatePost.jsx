@@ -1,41 +1,73 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import Alert from "react-bootstrap/Alert";
 
 function CreatePost() {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [description, setDescription] = useState("");
+  const [showAlert, setShowAlert] = useState(null);
+  const [token, setToken] = useState(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const storedToken = localStorage.getItem("jwtToken");
+    if (!storedToken) {
+      navigate("/login");
+    }
+    setToken(storedToken);
+  }, []);
+
+  const handleShowAlert = (message, variant = "success") => {
+    setShowAlert({ message, variant });
+    setTimeout(() => {
+      setShowAlert(null);
+    }, 3000);
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setShowAlert(null);
 
     try {
+      if (!token) {
+        return navigate("/login");
+      }
+
       const response = await fetch("http://localhost:3000/api/posts/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({ title, author, description }),
       });
 
       if (!response.ok) {
+        const data = await response.json();
+        handleShowAlert(data.error || "Failed to create a post.", "danger");
         throw new Error(response.status);
       }
 
-      console.log("Successful!");
-      navigate("/posts");
+      handleShowAlert("Post created successfully! Redirecting...");
+      setTimeout(() => {
+        navigate("/posts");
+      }, 3000);
     } catch (error) {
-      console.error(error.message);
+      console.error("Failed:", error.message);
+      handleShowAlert("An unexpected error occured.", "danger");
     }
   };
 
   return (
     <>
-      <h1>Welcome to the create post page!</h1>
+      {showAlert && (
+        <Alert variant={showAlert.variant}>{showAlert.message}</Alert>
+      )}
+      <h1>Create post</h1>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicTitle">
           <Form.Label>Title</Form.Label>
